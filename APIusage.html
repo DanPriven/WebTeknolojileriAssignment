@@ -2,20 +2,47 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Dota API</title>
+    <title>API Usage</title>
 </head>
 
 <body>
 
-<h1>Dota 2 Hero</h1>
+<h1>My Dota 2 Account</h1>
 
-<button onclick="getHero()">Show Hero</button>
+<button onclick="getStats()">Show Stats</button>
 
-<h2 id="heroName"></h2>
+<h2 id="nickname"></h2>
+
+<p id="rank"></p>
+
+<p id="wins"></p>
+
+<p id="losses"></p>
+
+<p id="winrate"></p>
 
 <script>
 
-function getHero() {fetch("https://api.opendota.com/api/heroStats").then(response => response.json()).then(data => {document.getElementById("heroName").innerText =data[86].localized_name;});}
+function getStats() {
+
+    fetch("https://api.opendota.com/api/players/374636872")
+        .then(response => response.json()).then(data => {document.getElementById("nickname").innerText ="Nickname: " + data.profile.personaname;
+                                                         
+        document.getElementById("rank").innerText ="Rank Tier: " + data.rank_tier;});
+
+    
+    fetch("https://api.opendota.com/api/players/374636872/wl")
+        .then(response => response.json())
+            
+        .then(data => {document.getElementById("wins").innerText ="Wins: " + data.win;
+                       
+        document.getElementById("losses").innerText ="Losses: " + data.lose;
+    
+            let wr = (data.win / (data.win + data.lose) * 100).toFixed(1);
+    
+            document.getElementById("winrate").innerText ="Winrate: " + wr + "%";});
+
+}
 
 </script>
 
