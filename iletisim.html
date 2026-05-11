@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+</head>
+
+<body>
+
+<h1>Contact Form</h1>
+
+<form>
+
+<label>Name:</label>
+<br>
+<input type="text" id="name">
+<br><br>
+
+<label>Email:</label>
+<br>
+<input type="text" id="email">
+<br><br>
+
+<label>Phone:</label>
+<br>
+<input type="text" id="phone">
+<br><br>
+
+<label>Gender:</label>
+<br>
+
+<input type="radio" name="gender" id ="malegen">
+Male
+
+<input type="radio" name="gender" id= "femalegen">
+Female
+
+<input type="radio" name="gender" id= "othergen" checked>
+Other
+<br><br>
+
+<label>Favorite Language:</label>
+
+<select>
+    <option>JavaScript</option>
+    <option>Python</option>
+    <option>C#</option>
+</select>
+
+<br><br>
+
+<input type="checkbox" id="terms">
+I accept terms
+
+<br><br>
+
+<button type="button" onclick="checkForm()">
+Check Form
+</button>
+
+</form>
+
+<p id="result"></p>
+
+<script>
+
+function checkForm() {
+
+    let name =
+    document.getElementById("name").value;
+    
+    let email =
+    document.getElementById("email").value;
+    
+    let phone =
+    document.getElementById("phone").value;
+    
+    let terms =
+    document.getElementById("terms").checked;
+    
+    
+    
+    if(name == "" || email == "" || phone == "") {
+
+        document.getElementById("result").innerText =
+        "Please fill all the blanks";
+    
+    }
+    
+    else if (isNaN(phone)){
+        document.getElementById("result").innerText =
+        "Phone must contain only numbers";
+    }
+
+    else if(terms == false) {
+
+    document.getElementById("result").innerText =
+    "Please accept terms";
+
+    }
+    
+    else {
+
+        document.getElementById("result").innerText =
+        "Form submitted";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
