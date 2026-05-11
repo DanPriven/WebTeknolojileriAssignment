@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dota API</title>
+</head>
+
+<body>
+
+<h1>Dota 2 Hero</h1>
+
+<button onclick="getHero()">Show Hero</button>
+
+<h2 id="heroName"></h2>
+
+<script>
+
+function getHero() {fetch("https://api.opendota.com/api/heroStats").then(response => response.json()).then(data => {document.getElementById("heroName").innerText =data[86].localized_name;});}
+
+</script>
+
+</body>
+</html>
