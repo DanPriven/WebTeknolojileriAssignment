@@ -9,39 +9,39 @@
 
 <h1>Contact Form</h1>
 
-<form>
+<form action="contact.php" method="POST" onsubmit="return checkForm()">
 
 <label>Name:</label>
 <br>
-<input type="text" id="name">
+<input type="text" id="name" name = "name">
 <br><br>
 
 <label>Email:</label>
 <br>
-<input type="text" id="email">
+<input type="text" id="email" name = "email">
 <br><br>
 
 <label>Phone:</label>
 <br>
-<input type="text" id="phone">
+<input type="text" id="phone" name = "phone">
 <br><br>
 
 <label>Gender:</label>
 <br>
 
-<input type="radio" name="gender" id ="malegen">
+<input type="radio" name="gender" id ="malegen" value = "male">
 Male
 
-<input type="radio" name="gender" id= "femalegen">
+<input type="radio" name="gender" id= "femalegen" value = "female">
 Female
 
-<input type="radio" name="gender" id= "othergen" checked>
+<input type="radio" name="gender" id= "othergen" checked value = "other">
 Other
 <br><br>
 
 <label>Favorite Language:</label>
 
-<select>
+<select name = "language">
     <option>JavaScript</option>
     <option>Python</option>
     <option>C#</option>
@@ -54,8 +54,8 @@ I accept terms
 
 <br><br>
 
-<button type="button" onclick="checkForm()">
-Check Form
+<button type="submit">
+Submit
 </button>
 
 </form>
@@ -84,18 +84,20 @@ function checkForm() {
 
         document.getElementById("result").innerText =
         "Please fill all the blanks";
-    
+        return false
     }
     
     else if (isNaN(phone)){
         document.getElementById("result").innerText =
         "Phone must contain only numbers";
+        return false
     }
 
     else if(terms == false) {
 
     document.getElementById("result").innerText =
     "Please accept terms";
+        return false
 
     }
     
@@ -103,7 +105,7 @@ function checkForm() {
 
         document.getElementById("result").innerText =
         "Form submitted";
-
+        return true
     }
 
 }
