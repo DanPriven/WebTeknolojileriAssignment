@@ -9,16 +9,16 @@
 
 <h1>Login</h1>
 
-<form action="login.php" method="POST">
+<form action="login.php" method="POST" onsubmit="return checkLogin()">
 
 <label>Email:</label>
 <br>
-<input type="text" name="email">
+<input type="text" id="email" name="email">
 <br><br>
 
 <label>Password:</label>
 <br>
-<input type="password" name="password">
+<input type="password" id = "password" name="password">
 
 <br><br>
 
@@ -28,5 +28,39 @@ Login
 
 </form>
 
+
+<p id="result"></p>
+<script>
+
+function checkLogin() {
+
+    let email =
+    document.getElementById("email").value;
+
+    let password =
+    document.getElementById("password").value;
+
+    if(email == "" || password == "") {
+
+        document.getElementById("result").innerText =
+        "Please fill all fields";
+
+        return false;
+    }
+    else {
+
+    document.getElementById("result").innerText =
+    "Login successful";
+
+    return true;
+    }
+    
+}
+
+</script>
+
+
+
+    
 </body>
 </html>
