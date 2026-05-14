@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3"></script>
     <meta charset="UTF-8">
     <title>Contact</title>
 </head>
@@ -49,7 +51,7 @@ Other
 
 <br><br>
 
-<input type="checkbox" id="terms">
+<input type="checkbox" id="terms" name="terms">
 I accept terms
 
 <br><br>
@@ -57,7 +59,10 @@ I accept terms
 <button type="submit">
 Submit
 </button>
-
+    
+<button type="button" onclick="vueCheck()">
+Vue Check
+</button>
 </form>
 
 <p id="result"></p>
@@ -80,37 +85,44 @@ function checkForm() {
     
     
     
-    if(name == "" || email == "" || phone == "") {
-
-        document.getElementById("result").innerText =
-        "Please fill all the blanks";
-        return false
+    if(name == "" || email == "" || phone == ""){
+        document.getElementById("result").innerText ="Please fill all the blanks"; return false
     }
     
     else if (isNaN(phone)){
-        document.getElementById("result").innerText =
-        "Phone must contain only numbers";
-        return false
+        document.getElementById("result").innerText ="Phone must contain only numbers"; return false
     }
 
-    else if(terms == false) {
-
-    document.getElementById("result").innerText =
-    "Please accept terms";
-        return false
-
+    else if(terms == false){
+        document.getElementById("result").innerText ="Please accept terms"; return false
     }
     
     else {
-
-        document.getElementById("result").innerText =
-        "Form submitted";
-        return true
+        document.getElementById("result").innerText ="Form submitted"; return true
     }
 
 }
 
 </script>
+    
+<script>
+
+function vueCheck() {
+
+    let email = document.getElementById("email").value;
+
+    if(email.includes("@")){
+        document.getElementById("result").innerText ="Vue validation successful";
+
+    }
+
+    else {document.getElementById("result").innerText ="Email is incorrect";}
+
+    }
+
+</script>
+
+
     
 <a href="home.html">About me</a>
 <br>    
