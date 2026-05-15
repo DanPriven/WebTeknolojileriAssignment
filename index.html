@@ -50,6 +50,12 @@ function checkLogin() {
 
         return false;
     }
+    else if(email.includes("@") == false){
+    document.getElementById("result").innerText ="Email is incorrect";
+
+    return false;
+    }
+        
     else {
     return true;
     }
