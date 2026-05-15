@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+</head>
+<body>
 <?php
 
 $name = $_POST["name"];
@@ -18,3 +25,5 @@ if(isset($_POST["terms"])) {
     echo "Terms accepted";
 }
 ?>
+</body>
+</html>
