@@ -1,6 +1,7 @@
 body {
     font-family: Arial;
     text-align: center;
+    
     background-color: #f0f0f0;
 }
 
@@ -8,4 +9,8 @@ form {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
+}
+
+ul {
+    list-style-position: inside;
 }
