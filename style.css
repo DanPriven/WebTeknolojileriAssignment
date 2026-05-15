@@ -12,6 +12,7 @@ form {
 }
 
 ul {
-    list-style-position: inside;
-    padding: 0;
+    display: table;
+    margin: 0 auto;
+    text-align: left;
 }
