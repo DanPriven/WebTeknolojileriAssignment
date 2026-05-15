@@ -12,7 +12,8 @@ form {
 }
 
 ul {
-    display: table;
-    margin: 0 auto;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
     text-align: left;
 }
