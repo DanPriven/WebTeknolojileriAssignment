@@ -24,9 +24,10 @@ else {
     echo "<h1>Wrong information</h1>";
 
 }
+
+?>
 <br>
 <br>
 <a href="index.html">Back to Login Page</a>
-?>
 </body>
 </html>
