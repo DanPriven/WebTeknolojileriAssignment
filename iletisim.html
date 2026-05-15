@@ -90,7 +90,12 @@ function checkForm() {
     if(name == "" || email == "" || phone == ""){
         document.getElementById("result").innerText ="Please fill all the blanks"; return false
     }
-    
+
+    else if(email.includes("@") == false){
+        document.getElementById("result").innerText ="Email is incorrect";
+        return false
+    }    
+        
     else if (isNaN(phone)){
         document.getElementById("result").innerText ="Phone must contain only numbers"; return false
     }
